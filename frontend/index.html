@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RV5 Skill Trust Graph</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Z" />
+        <path d="M12 4.4 6.3 6.6V11c0 3.7 2.3 7.3 5.7 8.5 3.4-1.2 5.7-4.8 5.7-8.5V6.6L12 4.4Z" />
+      </symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24">
+        <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+      </symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24">
+        <path d="M9 3h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V9a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2Z" />
+        <path d="M9 7h6V5H9v2Zm11 4H4" />
+      </symbol>
+      <symbol id="i-user-check" viewBox="0 0 24 24">
+        <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.1-8 4.8V22h10v-3.2c0-1.6.6-3 1.7-4.2A12.9 12.9 0 0 0 12 14Z" />
+        <path d="m22.6 16.6-5.1 5.3-3.5-3.6 1.3-1.3 2.2 2.3 3.8-4 1.3 1.3Z" />
+      </symbol>
+      <symbol id="i-map" viewBox="0 0 24 24">
+        <path d="m15 4-6-2-6 2v16l6-2 6 2 6-2V2l-6 2Z" />
+        <path d="M9 4.6v12.9M15 6.2v12.9" />
+      </symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24">
+        <path d="M9 3h6l1 2h4v2H4V5h4l1-2Z" />
+        <path d="M6 8h12v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8Zm3 2v8m3-8v8m3-8v8" />
+      </symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24">
+        <path d="m16.3 3.3 4.4 4.4-11 11H5.3v-4.4l11-11Z" />
+        <path d="M4 20h16" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M11 4h2v7h7v2h-7v7h-2v-7H4v-2h7V4Z" />
+      </symbol>
+      <symbol id="i-login" viewBox="0 0 24 24">
+        <path d="M10 3h9a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-9" />
+        <path d="m11.7 7.3-1.4 1.4 2.3 2.3H3v2h9.6l-2.3 2.3 1.4 1.4 4.7-4.7-4.7-4.7Z" />
+      </symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24">
+        <path d="M15 19H5.5A1.5 1.5 0 0 1 4 17.5l1-1.4V11a7 7 0 0 1 14 0v5.1l1 1.4a1.5 1.5 0 0 1-1.5 1.5H18" />
+        <path d="M9.5 19a2.5 2.5 0 0 0 5 0" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <path d="M3 6h18v12H3z" />
+        <path d="m4 7 8 6 8-6" />
+      </symbol>
+      <symbol id="i-key" viewBox="0 0 24 24">
+        <path d="M14 13a6 6 0 1 1 4.2-1.8L22 15v2h-2v2h-2v2h-2.3l-3.1-3.1A6 6 0 0 1 14 13Z" />
+        <path d="M10 10h.01" />
+      </symbol>
+      <symbol id="i-user-cog" viewBox="0 0 24 24">
+        <path d="M9 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.1 0-7 1.9-7 4.2V22h11v-2.6a4.2 4.2 0 0 1 1.4-3.2A11.8 11.8 0 0 0 9 14Z" />
+        <path d="m21.6 14.7-.6-.3.1-.7-.5-.8-.7.1-.5-.5-.9.1-.3-.6h-1l-.3.6-.9-.1-.5.5-.7-.1-.5.8.1.7-.6.3v1l.6.3-.1.7.5.8.7-.1.5.5.9-.1.3.6h1l.3-.6.9.1.5-.5.7.1.5-.8-.1-.7.6-.3v-1Z" />
+      </symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24">
+        <path d="M14 3h7v18h-7" />
+        <path d="m10.7 16.7 1.4 1.4 6.1-6.1-6.1-6.1-1.4 1.4 3.7 3.7H3v2h11.4l-3.7 3.7Z" />
+      </symbol>
+    </svg>
+
+    <div class="ambient-glow glow-a"></div>
+    <div class="ambient-glow glow-b"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon-wrap">
+          <svg class="brand-icon"><use href="#i-shield"></use></svg>
+        </div>
+        <div>
+          <h1>RV5 Skill Trust Graph</h1>
+          <p>Trusted Hiring Engine for Informal Workforce</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="refreshAllBtn" class="btn ghost">Refresh Data</button>
+        <span class="api-chip">API: <code id="apiBaseLabel"></code></span>
+        <span id="sessionChip" class="session-chip">Not logged in</span>
+        <button id="logoutBtn" class="btn ghost hidden">
+          <svg class="icon"><use href="#i-logout"></use></svg>
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Main navigation tabs">
+      <button class="tab active" data-target="dashboard">Dashboard</button>
+      <button class="tab" data-target="login">Login</button>
+      <button class="tab" data-target="onboarding" data-role="admin">Onboarding</button>
+      <button class="tab" data-target="workers" data-role="auth">Workers</button>
+      <button class="tab" data-target="jobs" data-role="auth">Jobs</button>
+      <button class="tab" data-target="myWork" data-role="worker">My Work</button>
+      <button class="tab" data-target="notifications" data-role="auth">Notifications</button>
+      <button class="tab" data-target="admin" data-role="admin">Admin</button>
+    </nav>
+
+    <main class="layout">
+      <section id="dashboard" class="view active">
+        <div class="hero">
+          <div class="hero-text">
+            <h2>Admin can onboard workers, assign jobs, and workers can track all assigned work in one login.</h2>
+            <p>
+              Includes role-based access, worker ID/password accounts, contact details, photo support,
+              assignment workflow, and activity notifications.
+            </p>
+            <div class="hero-cta-row">
+              <button class="btn solid" data-jump="login">
+                <svg class="icon"><use href="#i-login"></use></svg>
+                Login
+              </button>
+              <button class="btn" data-jump="workers" data-role="auth">
+                <svg class="icon"><use href="#i-map"></use></svg>
+                Explore Workers
+              </button>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 320 260" class="network-svg">
+              <defs>
+                <linearGradient id="pulseStroke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ffb46b" />
+                  <stop offset="100%" stop-color="#56d6df" />
+                </linearGradient>
+              </defs>
+              <g class="links">
+                <path d="M45 190 C90 135, 140 95, 195 78" />
+                <path d="M45 190 C120 180, 195 165, 270 180" />
+                <path d="M195 78 C210 125, 250 150, 270 180" />
+              </g>
+              <g class="nodes">
+                <circle cx="45" cy="190" r="20" />
+                <circle cx="195" cy="78" r="24" />
+                <circle cx="270" cy="180" r="20" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon"><svg class="icon"><use href="#i-user-check"></use></svg></div>
+            <div>
+              <p class="label">Workers</p>
+              <p class="value" id="statWorkers">0</p>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon"><svg class="icon"><use href="#i-briefcase"></use></svg></div>
+            <div>
+              <p class="label">Open Jobs</p>
+              <p class="value" id="statJobs">0</p>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon"><svg class="icon"><use href="#i-shield"></use></svg></div>
+            <div>
+              <p class="label">Avg. Trust Score</p>
+              <p class="value" id="statTrust">0</p>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon"><svg class="icon"><use href="#i-map"></use></svg></div>
+            <div>
+              <p class="label">Cities Covered</p>
+              <p class="value" id="statCities">0</p>
+            </div>
+          </article>
+        </div>
+
+        <section class="panel">
+          <h3>How Trust Score Works</h3>
+          <div class="trust-meter-wrap">
+            <div class="trust-meter">
+              <div id="trustFill" class="trust-fill" style="width: 0%"></div>
+            </div>
+            <p id="trustHint">Login to load worker trust graph...</p>
+          </div>
+        </section>
+      </section>
+
+      <section id="login" class="view">
+        <section class="panel">
+          <h2>
+            <svg class="icon"><use href="#i-login"></use></svg>
+            Login
+          </h2>
+          <form id="loginForm" class="form-grid">
+            <label>
+              Role
+              <select name="role" required>
+                <option value="worker">Worker</option>
+                <option value="recruiter">Recruiter</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+            <label>
+              Identifier
+              <input type="text" name="identifier" required placeholder="admin / worker_ramesh / phone / email" />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required placeholder="Enter password" />
+            </label>
+            <button type="submit" class="btn solid">Sign In</button>
+          </form>
+          <p class="muted-note">
+            Demo seed login: <code>admin / admin123</code>, <code>worker_ramesh / worker123</code>,
+            <code>worker_shankar / worker123</code>
+          </p>
+          <pre class="status-box" id="loginStatus">Not logged in</pre>
+        </section>
+
+        <div class="split-grid">
+          <section class="panel">
+            <h3>
+              <svg class="icon"><use href="#i-key"></use></svg>
+              Forgot Password (Step 1)
+            </h3>
+            <form id="forgotForm" class="form-grid">
+              <label>Identifier <input type="text" name="identifier" required /></label>
+              <button type="submit" class="btn">Generate Reset Code</button>
+            </form>
+            <pre class="status-box" id="forgotStatus">Idle</pre>
+          </section>
+
+          <section class="panel">
+            <h3>
+              <svg class="icon"><use href="#i-key"></use></svg>
+              Reset Password (Step 2)
+            </h3>
+            <form id="resetPasswordForm" class="form-grid">
+              <label>Identifier <input type="text" name="identifier" required /></label>
+              <label>Reset Code <input type="text" name="reset_code" required /></label>
+              <label>New Password <input type="password" name="new_password" required minlength="6" /></label>
+              <button type="submit" class="btn solid">Reset Password</button>
+            </form>
+            <pre class="status-box" id="resetStatus">Idle</pre>
+          </section>
+        </div>
+      </section>
+
+      <section id="onboarding" class="view" data-role="admin">
+        <div class="split-grid">
+          <section class="panel">
+            <h2>Worker Onboarding (Admin)</h2>
+            <form id="workerOnboardForm" class="form-grid">
+              <label>Name <input type="text" name="name" required /></label>
+              <label>Worker Code <input type="text" name="worker_code" placeholder="WK-1020" /></label>
+              <label>Trade <input type="text" name="trade" required placeholder="Electrician" /></label>
+              <label>City <input type="text" name="city" required /></label>
+              <label>Phone <input type="text" name="contact_phone" placeholder="+91-9XXXXXXXXX" /></label>
+              <label>Email <input type="email" name="contact_email" placeholder="worker@email.com" /></label>
+              <label>Photo URL <input type="url" name="photo_url" placeholder="https://..." /></label>
+              <label>Or Upload Photo (small image)
+                <input type="file" name="photo_file" accept="image/*" />
+              </label>
+              <label>Worker Login ID <input type="text" name="worker_identifier" placeholder="worker_mahesh" /></label>
+              <label>Worker Login Password <input type="password" name="worker_password" minlength="6" placeholder="min 6 chars" /></label>
+              <label>Languages (comma separated)
+                <input type="text" name="languages" placeholder="Marathi,Hindi" />
+              </label>
+              <label>Experience (years)
+                <input type="number" min="0" name="years_experience" value="0" />
+              </label>
+              <label>Summary
+                <textarea name="summary" rows="3" placeholder="Work highlights"></textarea>
+              </label>
+              <label>Badges (comma separated)
+                <input type="text" name="badges" placeholder="Verified ID,Skill Test L2" />
+              </label>
+              <button type="submit" class="btn solid">Create Worker Profile</button>
+            </form>
+            <pre class="status-box" id="workerOnboardStatus">Idle</pre>
+          </section>
+
+          <section class="panel">
+            <h2>Recruiter Onboarding (Admin)</h2>
+            <form id="recruiterOnboardForm" class="form-grid">
+              <label>Company Name <input type="text" name="company_name" required /></label>
+              <label>Contact Name <input type="text" name="contact_name" required /></label>
+              <label>City <input type="text" name="city" required /></label>
+              <label>
+                Verified
+                <select name="verified">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </label>
+              <button type="submit" class="btn solid">Create Recruiter Account</button>
+            </form>
+            <pre class="status-box" id="recruiterOnboardStatus">Idle</pre>
+          </section>
+        </div>
+      </section>
+
+      <section id="workers" class="view" data-role="auth">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>
+              <svg class="icon"><use href="#i-user-check"></use></svg>
+              Workers Directory
+            </h2>
+            <button id="createWorkerBtn" class="btn" data-role="admin">
+              <svg class="icon"><use href="#i-plus"></use></svg>
+              New Worker
+            </button>
+          </div>
+          <form id="workerFilterForm" class="inline-form">
+            <input type="text" name="trade" placeholder="Filter by trade" />
+            <input type="text" name="city" placeholder="Filter by city" />
+            <button type="submit" class="btn">Apply</button>
+            <button type="button" id="workerClearFilterBtn" class="btn ghost">Clear</button>
+          </form>
+          <div id="workersList" class="card-grid"></div>
+        </section>
+      </section>
+
+      <section id="jobs" class="view" data-role="auth">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>
+              <svg class="icon"><use href="#i-briefcase"></use></svg>
+              Jobs Board
+            </h2>
+            <button id="createJobBtn" class="btn" data-role="admin">
+              <svg class="icon"><use href="#i-plus"></use></svg>
+              New Job
+            </button>
+          </div>
+          <form id="jobFilterForm" class="inline-form">
+            <input type="text" name="city" placeholder="Filter by city" />
+            <select name="status">
+              <option value="">All Status</option>
+              <option value="open">Open</option>
+              <option value="assigned">Assigned</option>
+              <option value="closed">Closed</option>
+            </select>
+            <button type="submit" class="btn">Apply</button>
+            <button type="button" id="jobClearFilterBtn" class="btn ghost">Clear</button>
+          </form>
+          <div id="jobsList" class="card-grid"></div>
+        </section>
+      </section>
+
+      <section id="myWork" class="view" data-role="worker">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>
+              <svg class="icon"><use href="#i-briefcase"></use></svg>
+              My Assigned Work
+            </h2>
+            <button id="refreshMyJobsBtn" class="btn">Refresh</button>
+          </div>
+          <pre class="status-box" id="myJobsStatus">Login as worker to see assigned work.</pre>
+          <div id="myJobsList" class="card-grid"></div>
+        </section>
+      </section>
+
+      <section id="notifications" class="view" data-role="auth">
+        <div class="split-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>
+                <svg class="icon"><use href="#i-bell"></use></svg>
+                Activity Notifications
+              </h2>
+              <button id="refreshNotificationsBtn" class="btn">Refresh</button>
+            </div>
+            <div id="notificationList" class="notification-list"></div>
+          </section>
+
+          <section class="panel" data-role="admin">
+            <h2>
+              <svg class="icon"><use href="#i-mail"></use></svg>
+              Admin Broadcast
+            </h2>
+            <form id="broadcastForm" class="form-grid">
+              <label>Title <input type="text" name="title" required /></label>
+              <label>Message <textarea name="message" rows="4" required></textarea></label>
+              <label>
+                Target Role
+                <select name="target_role">
+                  <option value="all">All</option>
+                  <option value="worker">Worker</option>
+                  <option value="recruiter">Recruiter</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </label>
+              <label>
+                Level
+                <select name="level">
+                  <option value="info">Info</option>
+                  <option value="success">Success</option>
+                  <option value="warn">Warning</option>
+                  <option value="error">Error</option>
+                </select>
+              </label>
+              <button type="submit" class="btn solid">Send Notification</button>
+            </form>
+            <pre class="status-box" id="broadcastStatus">Idle</pre>
+          </section>
+        </div>
+      </section>
+
+      <section id="admin" class="view" data-role="admin">
+        <div class="split-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>
+                <svg class="icon"><use href="#i-user-cog"></use></svg>
+                User Accounts
+              </h2>
+              <button id="refreshUsersBtn" class="btn">Refresh</button>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Identifier</th>
+                    <th>Role</th>
+                    <th>Mapped Profile</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>
+              <svg class="icon"><use href="#i-key"></use></svg>
+              Admin Password Reset
+            </h2>
+            <form id="adminResetForm" class="form-grid">
+              <label>User ID (UUID) <input type="text" name="user_id" required /></label>
+              <label>New Password <input type="password" name="new_password" required minlength="6" /></label>
+              <button type="submit" class="btn solid">Reset Password</button>
+            </form>
+            <p class="muted-note">Tip: click "Use This ID" from user table to auto-fill user ID.</p>
+            <pre class="status-box" id="adminResetStatus">Idle</pre>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="workerDialog" class="modal">
+      <form id="workerCrudForm" class="form-grid modal-body" method="dialog">
+        <h3 id="workerDialogTitle">Create Worker</h3>
+        <input type="hidden" name="id" />
+        <label>Name <input type="text" name="name" required /></label>
+        <label>Worker Code <input type="text" name="worker_code" /></label>
+        <label>Trade <input type="text" name="trade" required /></label>
+        <label>City <input type="text" name="city" required /></label>
+        <label>Phone <input type="text" name="contact_phone" /></label>
+        <label>Email <input type="email" name="contact_email" /></label>
+        <label>Photo URL <input type="url" name="photo_url" /></label>
+        <label>Or Upload Photo <input type="file" name="photo_file" accept="image/*" /></label>
+        <label>Worker Login ID <input type="text" name="worker_identifier" /></label>
+        <label>Worker Login Password <input type="password" name="worker_password" minlength="6" /></label>
+        <label>Languages <input type="text" name="languages" placeholder="Marathi,Hindi" /></label>
+        <label>Trust Score <input type="number" min="0" max="100" name="trust_score" value="60" /></label>
+        <label>Jobs Completed <input type="number" min="0" name="jobs_completed" value="0" /></label>
+        <label>Experience (years) <input type="number" min="0" name="years_experience" value="0" /></label>
+        <label>Summary <textarea name="summary" rows="3"></textarea></label>
+        <label>Badges <input type="text" name="badges" placeholder="Verified ID,On-time 95%" /></label>
+        <div class="modal-actions">
+          <button type="submit" class="btn solid">Save</button>
+          <button type="button" class="btn ghost" data-close="workerDialog">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="jobDialog" class="modal">
+      <form id="jobCrudForm" class="form-grid modal-body" method="dialog">
+        <h3 id="jobDialogTitle">Create Job</h3>
+        <input type="hidden" name="id" />
+        <input type="hidden" name="assigned_worker_id" />
+        <label>Title <input type="text" name="title" required /></label>
+        <label>City <input type="text" name="city" required /></label>
+        <label>Required Trade <input type="text" name="required_trade" required /></label>
+        <label>Budget <input type="number" min="0" step="0.01" name="budget" required /></label>
+        <label>Status
+          <select name="status">
+            <option value="open">Open</option>
+            <option value="assigned">Assigned</option>
+            <option value="closed">Closed</option>
+          </select>
+        </label>
+        <label>Description <textarea name="description" rows="3"></textarea></label>
+        <label>Recruiter ID (optional) <input type="text" name="recruiter_id" placeholder="UUID" /></label>
+        <div class="modal-actions">
+          <button type="submit" class="btn solid">Save</button>
+          <button type="button" class="btn ghost" data-close="jobDialog">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="assignDialog" class="modal">
+      <form id="assignForm" class="form-grid modal-body" method="dialog">
+        <h3>Assign Worker</h3>
+        <input type="hidden" name="job_id" />
+        <p id="assignJobInfo" class="summary"></p>
+        <label>
+          Select Worker
+          <select name="worker_id" id="assignWorkerSelect" required></select>
+        </label>
+        <div class="modal-actions">
+          <button type="submit" class="btn solid">Assign</button>
+          <button type="button" id="unassignBtn" class="btn ghost">Unassign</button>
+          <button type="button" class="btn ghost" data-close="assignDialog">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <template id="workerCardTemplate">
+      <article class="entity-card worker">
+        <div class="entity-head">
+          <h3 class="name"></h3>
+          <span class="trust"></span>
+        </div>
+        <div class="worker-photo-wrap">
+          <img class="worker-photo" alt="Worker photo" loading="lazy" />
+        </div>
+        <p class="meta"></p>
+        <p class="contact"></p>
+        <p class="summary"></p>
+        <div class="badges"></div>
+        <div class="entity-actions">
+          <button class="btn small edit">
+            <svg class="icon"><use href="#i-edit"></use></svg>
+            Edit
+          </button>
+          <button class="btn small danger delete">
+            <svg class="icon"><use href="#i-trash"></use></svg>
+            Delete
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <template id="jobCardTemplate">
+      <article class="entity-card job">
+        <div class="entity-head">
+          <h3 class="name"></h3>
+          <span class="status"></span>
+        </div>
+        <p class="meta"></p>
+        <p class="summary"></p>
+        <div class="entity-actions">
+          <button class="btn small assign">
+            <svg class="icon"><use href="#i-user-check"></use></svg>
+            Assign
+          </button>
+          <button class="btn small edit">
+            <svg class="icon"><use href="#i-edit"></use></svg>
+            Edit
+          </button>
+          <button class="btn small danger delete">
+            <svg class="icon"><use href="#i-trash"></use></svg>
+            Delete
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <template id="myJobCardTemplate">
+      <article class="entity-card job">
+        <div class="entity-head">
+          <h3 class="name"></h3>
+          <span class="status"></span>
+        </div>
+        <p class="meta"></p>
+        <p class="summary"></p>
+      </article>
+    </template>
+
+    <template id="notificationItemTemplate">
+      <article class="notice-item">
+        <div class="notice-head">
+          <h4 class="notice-title"></h4>
+          <span class="notice-level"></span>
+        </div>
+        <p class="notice-message"></p>
+        <p class="notice-meta"></p>
+      </article>
+    </template>
+
+    <template id="adminUserRowTemplate">
+      <tr>
+        <td class="u-identifier"></td>
+        <td class="u-role"></td>
+        <td class="u-mapped"></td>
+        <td>
+          <button class="btn small use-id">Use This ID</button>
+          <button class="btn small reset-user">Reset Password</button>
+        </td>
+      </tr>
+    </template>
+
+    <div id="toastRoot" class="toast-root" aria-live="polite"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

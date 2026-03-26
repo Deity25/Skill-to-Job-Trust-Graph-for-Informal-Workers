@@ -1,0 +1,20 @@
+{
+  "name": "rv5-skill-trust-graph-backend",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:schema": "node scripts/run-sql.js db/schema.sql",
+    "db:seed": "node scripts/run-sql.js db/seed.sql",
+    "db:reset": "node scripts/reset-db.js",
+    "db:fresh": "npm run db:reset && npm run db:schema && npm run db:seed"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.13.1"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "workers": [
+    {
+      "id": "w-001",
+      "name": "Ramesh Patil",
+      "trade": "Electrician",
+      "city": "Pune",
+      "languages": ["Marathi", "Hindi"],
+      "badges": ["Verified ID", "Skill Test Level 2", "On-time 95%"],
+      "trustScore": 87,
+      "jobsCompleted": 132
+    },
+    {
+      "id": "w-002",
+      "name": "Shankar Jadhav",
+      "trade": "Plumber",
+      "city": "Kolhapur",
+      "languages": ["Marathi"],
+      "badges": ["Verified ID", "Customer Favorite"],
+      "trustScore": 81,
+      "jobsCompleted": 98
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j-101",
+      "title": "House wiring repair",
+      "city": "Pune",
+      "budget": 1800,
+      "status": "open"
+    },
+    {
+      "id": "j-102",
+      "title": "Bathroom leakage fix",
+      "city": "Kolhapur",
+      "budget": 1200,
+      "status": "open"
+    }
+  ]
+}
