@@ -42,7 +42,7 @@ Role-based hiring platform for informal workforce with:
 cd /Users//Documents/RV5_SkillTrustGraph
 ./start.sh
 
-Firstly i created the 4-5 line step wise the bootup as npm run and all but then i optimized because i am too much lazy
+Firstly i created the 4-5 line step wise the bootup as npm run and all but then i optimized because i am too much lazy and above is result with help of LLM ChatGpt
 ```
 
 Frontend: `http://localhost:5500`  
