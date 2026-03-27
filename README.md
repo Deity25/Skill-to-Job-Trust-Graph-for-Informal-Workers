@@ -23,11 +23,11 @@ Role-based hiring platform for informal workforce with:
 
 ## Folder Structure
 
-- `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/frontend` -> HTML/CSS/JS app
-- `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/backend` -> API and DB scripts
-- `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/backend/db/schema.sql` -> schema
-- `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/backend/db/seed.sql` -> seed data
-- `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/start.sh` -> run frontend + backend
+- `/Users//Documents/RV5_SkillTrustGraph/frontend` -> HTML/CSS/JS app
+- `/Users//Documents/RV5_SkillTrustGraph/backend` -> API and DB scripts
+- `/Users//Documents/RV5_SkillTrustGraph/backend/db/schema.sql` -> schema
+- `/Users//Documents/RV5_SkillTrustGraph/backend/db/seed.sql` -> seed data
+- `/Users//Documents/RV5_SkillTrustGraph/start.sh` -> run frontend + backend
 
 ## Demo Login Accounts (after seed)
 
@@ -39,8 +39,10 @@ Role-based hiring platform for informal workforce with:
 ## Quick Start
 
 ```bash
-cd /Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph
+cd /Users//Documents/RV5_SkillTrustGraph
 ./start.sh
+
+Firstly i created the 4-5 line step wise the bootup as npm run and all but then i optimized because i am too much lazy
 ```
 
 Frontend: `http://localhost:5500`  
