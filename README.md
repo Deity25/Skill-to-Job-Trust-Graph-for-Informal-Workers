@@ -19,7 +19,7 @@ Role-based hiring platform for informal workforce with:
 - Password reset via:
   - forgot password code flow
   - admin reset endpoint
-- One-command startup script: `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/start.sh`
+- One-command startup script: `/Users//Documents/RV5_SkillTrustGraph/start.sh`
 
 ## Folder Structure
 
