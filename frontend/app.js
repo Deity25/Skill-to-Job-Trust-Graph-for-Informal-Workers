@@ -24,7 +24,6 @@ const state = {
   jobFilters: { city: "", status: "" },
   auth: parseStoredAuth()
 };
-
 const nodes = {
   apiBaseLabel: document.getElementById("apiBaseLabel"),
   sessionChip: document.getElementById("sessionChip"),
