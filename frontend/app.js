@@ -2,7 +2,6 @@ const API_BASE = localStorage.getItem("rv5_api_base") || "http://localhost:4000"
 const AUTH_STORAGE_KEY = "rv5_auth_v2";
 const FALLBACK_PHOTO =
   "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&auto=format&fit=crop";
-
 const parseStoredAuth = () => {
   try {
     const raw = localStorage.getItem(AUTH_STORAGE_KEY);
