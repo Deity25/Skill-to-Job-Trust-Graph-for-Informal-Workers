@@ -77,7 +77,6 @@ const persistAuth = () => {
   }
   localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(state.auth));
 };
-
 const setStatus = (id, message, data = null) => {
   const node = document.getElementById(id);
   if (!node) return;
