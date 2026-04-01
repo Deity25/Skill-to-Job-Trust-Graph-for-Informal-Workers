@@ -126,7 +126,6 @@ const toJson = async (response) => {
     error.status = response.status;
     throw error;
   }
-
   return payload;
 };
 
