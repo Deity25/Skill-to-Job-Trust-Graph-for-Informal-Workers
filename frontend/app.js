@@ -13,7 +13,6 @@ const parseStoredAuth = () => {
     return null;
   }
 };
-
 const state = {
   workers: [],
   jobs: [],
