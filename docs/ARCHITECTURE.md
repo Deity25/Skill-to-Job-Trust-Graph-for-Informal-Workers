@@ -15,8 +15,8 @@
 - Stack: Node.js + Express + PostgreSQL
 - Data access: `pg` with pooled connections
 - Main files:
-  - `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/backend/src/server.js`
-  - `/Users/gaurishankarvhadle/Documents/RV5_SkillTrustGraph/backend/src/db.js`
+  - `/Users//Documents/RV5_SkillTrustGraph/backend/src/server.js`
+  - `/Users//Documents/RV5_SkillTrustGraph/backend/src/db.js`
 
 ## Database Design
 
