@@ -2,15 +2,12 @@ import dotenv from "dotenv";
 import pg from "pg";
 
 dotenv.config();
-
 const { Pool } = pg;
 
 const connectionString = process.env.DATABASE_URL;
-
 if (!connectionString) {
   console.warn("DATABASE_URL is not set. Set backend/.env before starting API.");
 }
-
 export const pool = new Pool({
   connectionString,
   ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false
